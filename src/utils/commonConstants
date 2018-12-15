@@ -1,0 +1,9 @@
+// 系统通用状态
+const YesOrNo = [
+	{code:'0', name:'否'},
+	{code:'1', name:'是'}
+]
+
+export default {
+ 	YesOrNo
+}
