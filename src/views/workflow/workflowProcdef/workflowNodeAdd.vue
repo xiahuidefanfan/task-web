@@ -1,45 +1,32 @@
 <template>
 	<dialog-detail ref="dialogDetail" :dialog-title="textMap[dialogStatus]" @save-data="saveData" :show-cancel="true" :show-confirm="!disable" size="medium">
 		<el-form :rules="rules" ref="dataForm" :model="workflowNode" label-position="right" label-width="120px" size="mini">
+			<el-input v-model="workflowNode.procdefId" placeholder="流程ID" size="mini" v-if="false" style="width:220px;"></el-input>
 			<el-row>
 		        <el-col :span="10">
 	          		<el-form-item label="节点名称">
 	           	 		<el-input v-model="workflowNode.nodeName" placeholder="节点名称" size="mini" :disabled="disable" style="width:220px;"></el-input>
 		          	</el-form-item>
 		        </el-col>
-		       <el-col :span="10">
+		        <el-col :span="10">
 	          		<el-form-item label="节点编码" prop="nodeCode">
 	           	 		<el-input v-model="workflowNode.nodeCode" placeholder="节点编码" size="mini" :disabled="disable" style="width:220px;"></el-input>
 		          	</el-form-item>
 		        </el-col>
 	      	</el-row>
-
-      		<el-row>
-		        <el-col :span="10">
-	          		<el-form-item label="流程定义id" prop="nodeProcDefId">
-	           	 		<el-input v-model="workflowNode.nodeProcDefId" placeholder="流程定义id" size="mini" :disabled="disable" style="width:220px;"></el-input>
-		          	</el-form-item>
-		        </el-col>
-	            <el-col :span="10">
-	          		<el-form-item label="节点版本" prop="nodeVersion">
-	           	 		<el-input v-model="workflowNode.nodeVersion" placeholder="节点版本" size="mini" :disabled="disable" style="width:220px;"></el-input>
-		          	</el-form-item>
-          	 	</el-col>
-	      	</el-row>
-
   			<el-row>
-		        <el-col :span="10">
-	          		<el-form-item label="节点顺序" prop="nodeOrder">
-	           	 		<el-input v-model="workflowNode.nodeOrder" placeholder="节点顺序" size="mini" :disabled="disable" style="width:220px;"></el-input>
-		          	</el-form-item>
-		        </el-col>
 	            <el-col :span="10">
-		          	<el-form-item label="节点类型" prop="nodeTypeName">
-			            <el-select v-model="workflowNode.nodeTypeName" filterable placeholder="节点类型" size="mini" :disabled="disable" style="width:220px;">
+		          	<el-form-item label="节点类型" prop="nodeType">
+			            <el-select v-model="workflowNode.nodeType" filterable placeholder="节点类型" size="mini" :disabled="disable" style="width:220px;">
 			              	<el-option v-for="item in nodeTypes" :key="item.dictCode" :label="item.dictName" :value="item.dictCode"></el-option>
 			            </el-select>
 		          	</el-form-item>
           	 	</el-col>
+          	 	<el-col :span="10">
+	          		<el-form-item label="节点顺序" prop="nodeOrder">
+	           	 		<el-input-number v-model="workflowNode.nodeOrder" placeholder="节点顺序" size="mini" :disabled="disable" style="width:220px;"></el-input-number>
+		          	</el-form-item>
+		        </el-col>
 	      	</el-row>
 
 	      	<el-row>

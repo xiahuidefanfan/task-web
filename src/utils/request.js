@@ -58,16 +58,17 @@ service.interceptors.response.use(
       })
     }
     if(error.message && error.message == "Network Error"){
-      MessageBox({
-        title: '错误信息',
-        message: '您已掉线！',
-        type: 'error'
-      }).then(() => {
-          window.location.reload()
+      if(window.location.href.indexOf("/login") <= 0){
+        MessageBox({
+          title: '错误信息',
+          message: '您已掉线！',
+          type: 'error'
+        }).then(() => {
+            window.location.reload()
         })
+      }
     }
     return Promise.reject(error)
   }
 )
-
 export default service

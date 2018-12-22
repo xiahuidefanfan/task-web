@@ -55,7 +55,7 @@ export function changeStatus ( params ) {
 export function del( params ) {
   return request ({
     url: '/task/menu/delete.action',
-    method: 'post',
+    method: 'delete',
     params
   })
 }

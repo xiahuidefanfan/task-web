@@ -35,3 +35,15 @@ export function update( params ) {
     params
   })
 }
+
+/**
+ * 删除节点
+ * @param params
+ */
+export function del( params ) {
+  return request ({
+    url: '/task/workflowNode/delete.action',
+    method: 'delete',
+    params
+  })
+}
